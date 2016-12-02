@@ -26,13 +26,11 @@ descriptorMapping = { 0: 'lowlevel.spectral_centroid.mean',
 
 '''
 
-N = 16 # number of descriptors
+N = 17 # number of descriptors
 
 # Iterate through all the possible pairs for descriptors and see if they cluster the sounds good or they don't
 
 for i in range(N):
     for j in range(N):
-        i+=1
-        j+=1
         SA.descriptorPairScatterPlot('downloaded/', descInput=(i,j), anotOn=1)
 
