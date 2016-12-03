@@ -32,5 +32,11 @@ N = 17 # number of descriptors
 
 for i in range(N):
     for j in range(N):
-        SA.descriptorPairScatterPlot('downloaded/', descInput=(i,j), anotOn=1)
+        SA.descriptorPairScatterPlot('downloaded/', descInput=(i,j), anotOn=0)
+
+# Cluster sounds using k-means algorithm
+SA.clusterSounds('downloaded/', nCluster=10, descInput=[4,8,9,10,11,12,13,14,15])
+
+# Final choice of descriptors: 4,8,9,10,11,12,13,14,15
+# Mean accuracy of 68.65% using k-means algorithm with 10 clusters
 
