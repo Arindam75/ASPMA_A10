@@ -5,39 +5,39 @@ from os import listdir, walk
 import json
 import parseFeaturesAndCluster as newClustering
 
-# def featureExtraction(soundfiles):
-#     # extractor = esst.LowLevelSpectralExtractor()
-#     extractor = esst.Extractor(dynamics = False,
-#                                                 dynamicsFrameSize = 88200,
-#                                                 dynamicsHopSize = 44100,
-#                                                 highLevel = False,
-#         			         lowLevel = True,
-#         			         lowLevelFrameSize = 2048,
-#         			         lowLevelHopSize = 1024,
-#         			         midLevel = True,
-#         			         namespace = "",
-#         			         relativeIoi = False,
-#         			         rhythm = False,
-#         			         sampleRate  = 44100,
-#         			         tonalFrameSize  = 4096,
-#         			         tonalHopSize = 2048,
-# 			         tuning = True)
-#
-# 	#soundfiles = listdir(inputPath)
-#     for file in soundfiles:
-#
-#         path1= '/Users/helena/Desktop/SMC/ASP/sms-tools/workspace/A10/code/downloaded/'
-#         name=file[70:-4] + '_features.json'
-#         outPath = path1 + 'features/' + name
-#         print file
-#         audioLoader = esst.MonoLoader(filename=file)
-#         audio = audioLoader()
-#         pool = essentia.Pool()
-#         pool = extractor(audio)
-#         aggPool = esst.PoolAggregator()(pool)
-#         output = esst.YamlOutput(filename = outPath, format='json')
-#         output(aggPool)
-#         print (outPath + ' exported')
+def featureExtraction(soundfiles):
+    # extractor = esst.LowLevelSpectralExtractor()
+    extractor = esst.Extractor(dynamics = False,
+                                                dynamicsFrameSize = 88200,
+                                                dynamicsHopSize = 44100,
+                                                highLevel = False,
+        			         lowLevel = True,
+        			         lowLevelFrameSize = 2048,
+        			         lowLevelHopSize = 1024,
+        			         midLevel = True,
+        			         namespace = "",
+        			         relativeIoi = False,
+        			         rhythm = False,
+        			         sampleRate  = 44100,
+        			         tonalFrameSize  = 4096,
+        			         tonalHopSize = 2048,
+			         tuning = True)
+
+	#soundfiles = listdir(inputPath)
+    for file in soundfiles:
+
+        path1= '/Users/helena/Desktop/SMC/ASP/sms-tools/workspace/A10/code/downloaded/'
+        name=file[70:-4] + '_features.json'
+        outPath = path1 + 'features/' + name
+        print file
+        audioLoader = esst.MonoLoader(filename=file)
+        audio = audioLoader()
+        pool = essentia.Pool()
+        pool = extractor(audio)
+        aggPool = esst.PoolAggregator()(pool)
+        output = esst.YamlOutput(filename = outPath, format='json')
+        output(aggPool)
+        print (outPath + ' exported')
 
 
 
@@ -65,7 +65,7 @@ for instrument in instruments:
 
 #print (soundfilesList)
 
-# featureExtraction(soundfilesList)
+featureExtraction(soundfilesList)
 
 
 # Clustering
