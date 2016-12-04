@@ -18,35 +18,38 @@ descriptorMapping = [ 'lowLevel.spectral_centroid.mean',# 0
                       'sfx.inharmonicity.stdev', #7
                       'lowLevel.spectral_contrast.mean', #8
                       'lowLevel.spectral_contrast.stdev', #9
-                      'lowLevel.mfcc.mean.0', #10
-                      'lowLevel.mfcc.mean.1', #11
-                      'lowLevel.mfcc.mean.2', #12
-                      'lowLevel.mfcc.mean.3', #13
-                      'lowLevel.mfcc.mean.4', #14
-                      'lowLevel.mfcc.mean.5', #15
-                      'lowLevel.mfcc.mean.6', #16
-                      'lowLevel.mfcc.mean.7', #17
-                      'lowLevel.mfcc.mean.8', #18
-                      'lowLevel.mfcc.mean.9', #19
-                      'lowLevel.barkbands_kurtosis.mean', #20
-                      'lowLevel.barkbands_skewness.mean', #21
-                      'lowLevel.barkbands_spread.mean', #22
-                      'lowLevel.spectral_complexity.mean', #23
-                      'lowLevel.spectral_crest.mean', #24
-                      'lowLevel.spectral_energyband_high.mean', #25
-                      'lowLevel.spectral_energyband_low.mean', #26
-                      'lowLevel.spectral_energy.mean', #27
-                      'lowLevel.spectral_energy.stdev', #28
-                      'lowLevel.spectral_kurtosis.mean', #29
-                      'lowLevel.spectral_flatness_db.mean', #30
-                      'lowLevel.spectral_flux.mean', #31
-                      'lowLevel.spectral_flux.stdev', #32
-                      'lowLevel.spectral_spread.stdev', #33
-                      'lowLevel.spectral_spread.mean', #34
-                      'lowLevel.sccoeffs.mean', #35
-                      'lowLevel.spectral_rolloff.mean', #36
-                      'lowLevel.zerocrossingrate.mean', #37
-                      'lowLevel.zerocrossingrate.stdev', #38
+                      'lowLevel.mfcc.mean', #10
+                      'lowLevel.barkbands_kurtosis.mean', #11
+                      'lowLevel.barkbands_skewness.mean', #12
+                      'lowLevel.barkbands_spread.mean', #13
+                      'lowLevel.spectral_complexity.mean', #14
+                      'lowLevel.spectral_crest.mean', #15
+                      'lowLevel.spectral_energyband_high.mean', #16
+                      'lowLevel.spectral_energyband_low.mean', #17
+                      'lowLevel.spectral_energy.mean', #18
+                      'lowLevel.spectral_energy.stdev', #19
+                      'lowLevel.spectral_kurtosis.mean', #20
+                      'lowLevel.spectral_flatness_db.mean', #21
+                      'lowLevel.spectral_flux.mean', #22
+                      'lowLevel.spectral_flux.stdev', #23
+                      'lowLevel.spectral_spread.stdev', #24
+                      'lowLevel.spectral_spread.mean', #25
+                      'lowLevel.sccoeffs.mean', #26
+                      'lowLevel.spectral_rolloff.mean', #27
+                      'lowLevel.zerocrossingrate.mean', #28
+                      'lowLevel.zerocrossingrate.stdev', #29
+                      'lowLevel.strongpeak.mean' ,#30
+                      'lowLevel.mfcc.mean', # 31
+                      'lowLevel.hfc.mean' ,# 32
+                      'lowLevel.silence_rate_30dB.mean',  #33
+                      'lowLevel.silence_rate_20dB.mean' , #34
+                      'lowLevel.silence_rate_60dB.mean',  #35
+                      'lowLevel.spectral_rms.mean', # 36
+                      'sfx.oddtoevenharmonicenergyratio.mean', # 37
+                      'lowLevel.pitch_salience.mean' #38
+
+
+
                     ]
 
 descriptorMapping = np.array(descriptorMapping)
@@ -71,7 +74,7 @@ def convFtrDict2List(ftrDict, descriptorsToSelect):
 
   """
   ftr = []
-  print ftrDict.keys()
+  # print ftrDict.keys()
 
   try:
       for feature in ftrDict['lowLevel'].keys():
@@ -118,7 +121,7 @@ def convFtrDict2List(ftrDict, descriptorsToSelect):
   return np.array(ftr)
 
 
-def clusterSounds(targetDir, nCluster = -1, descInput=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]):
+def clusterSounds(targetDir, nCluster = -1, descInput=[]):
   """
   This function clusters all the sounds in targetDir using kmeans clustering.
 
@@ -147,11 +150,11 @@ def clusterSounds(targetDir, nCluster = -1, descInput=[0,1,2,3,4,5,6,7,8,9,10,11
   for cname in dataDetails.keys():
     #iterating over sounds
     for sname in dataDetails[cname].keys():
-        print dataDetails[cname][sname]['feature']
+        # print dataDetails[cname][sname]['feature']
         ftrArr.append(convFtrDict2List(dataDetails[cname][sname]['feature'], descInput))
         infoArr.append([sname, cname])
-    print ('out ')
-    print (ftrArr)
+    # print ('out ')
+    # print (ftrArr)
 
   ftrArr = np.array(ftrArr)
   infoArr = np.array(infoArr)

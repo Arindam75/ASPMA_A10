@@ -2,9 +2,8 @@ import numpy as np
 # import essentia.standard as esst
 # import essentia.pool
 from os import listdir, walk
-import soundAnalysis_mod as SA
 import json
-import parseJSONkeys as newClustering
+import parseFeaturesAndCluster as newClustering
 
 # def featureExtraction(soundfiles):
 #     # extractor = esst.LowLevelSpectralExtractor()
@@ -68,16 +67,14 @@ for instrument in instruments:
 
 # featureExtraction(soundfilesList)
 
-# Clustetring
 
-# see descriptors
-# path = '/Users/helena/Desktop/SMC/ASP/sms-tools/workspace/A10/code/downloaded/features/cello_note/247485/247485_6552981-lq_features.json'
-# fDict = json.load(open(path,'r'))
-# descriptors = fDict.keys()
-# print descriptors
+# Clustering
+descriptors = np.arange(31)
 
 
-newClustering.clusterSounds('downloaded/features/', nCluster=10, descInput=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14])
+
+newClustering.clusterSounds('downloaded/features/', nCluster=10, descInput=[4,5,6,7,8,10,25,27,28,11,35,15,17,21,37,38])
+
 
 
 
