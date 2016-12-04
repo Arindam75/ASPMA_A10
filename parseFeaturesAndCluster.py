@@ -46,9 +46,8 @@ descriptorMapping = [ 'lowLevel.spectral_centroid.mean',# 0
                       'lowLevel.silence_rate_60dB.mean',  #35
                       'lowLevel.spectral_rms.mean', # 36
                       'sfx.oddtoevenharmonicenergyratio.mean', # 37
-                      'lowLevel.pitch_salience.mean' #38
-
-
+                      'lowLevel.pitch_salience.mean', #38
+                      'lowLevel.strongpeak.mean' #39
 
                     ]
 
