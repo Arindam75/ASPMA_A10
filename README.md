@@ -1,4 +1,5 @@
-#README
+## Sound Description using Essentia & Freesound
+### Assigment 10: Audio Signal Processing for Music Applications
 
 This repository contains the code for the last project of the Audio Signal Processing for Music Applications (from Coursera).
 It is about sound description using Essentia library and classification with simple machine learning algorithms.
